@@ -10,6 +10,8 @@ Przy wdrazaniu dbt na postgresa
 pip install dbt-postgres  
 ```
 
+Przygotowac wczesniej baze (ecommerce_db_demo) i schemat (ECOMMERCE_DEMO)
+
 Uruchomienie dbt:  
 ```bash  
 dbt deps

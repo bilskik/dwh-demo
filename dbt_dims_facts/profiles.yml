@@ -1,4 +1,4 @@
-dbt_dims_facts:
+postgres:
   target: dev
   outputs:
     dev:
@@ -10,3 +10,16 @@ dbt_dims_facts:
       dbname: olist_db
       schema: public
       threads: 1
+
+snowflake:
+  target: dev
+  outputs:  
+    dev:
+      type: snowflake
+      account: 
+      user: 
+      password: 
+      role: ACCOUNTADMIN               
+      database: ecommerce_db_demo
+      schema: ECOMMERCE_DEMO
+      warehouse: COMPUTE_WH

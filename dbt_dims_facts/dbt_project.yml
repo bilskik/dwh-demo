@@ -4,9 +4,7 @@
 # name or the intended use of these models
 name: 'dbt_dims_facts'
 version: '1.0.0'
-
-# This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_dims_facts'
+profile: 'snowflake'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -34,4 +32,4 @@ models:
     dims:
       +materialized: table
     facts:
-      +materialized: view
+      +materialized: table
