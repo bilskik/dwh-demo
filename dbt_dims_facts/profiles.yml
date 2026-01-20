@@ -19,7 +19,7 @@ snowflake:
       account: 
       user: 
       password: 
-      role: ACCOUNTADMIN               
+      role: ACCOUNTADMIN
       database: ecommerce_db_demo
       schema: ECOMMERCE_DEMO
       warehouse: COMPUTE_WH

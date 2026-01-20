@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: olist_raw
-    schema: public
+  - name: ecommerce_raw
+    schema: ECOMMERCE_DEMO
     tables:
       - name: customers
       - name: geolocation

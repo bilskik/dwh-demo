@@ -3,4 +3,4 @@ select
     seller_city,
     seller_state,
     seller_zip_code_prefix
-from {{ source('olist_raw', 'sellers') }}
+from {{ source('ecommerce_raw', 'sellers') }}

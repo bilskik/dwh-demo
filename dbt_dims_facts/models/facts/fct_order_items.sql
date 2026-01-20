@@ -1,11 +1,11 @@
 with orders as (
-    select * from {{ source('olist_raw', 'orders') }}
+    select * from {{ source('ecommerce_raw', 'orders') }}
 ),
 items as (
-    select * from {{ source('olist_raw', 'order_items') }}
+    select * from {{ source('ecommerce_raw', 'order_items') }}
 ),
 customers as (
-    select customer_id, customer_unique_id from {{ source('olist_raw', 'customers') }}
+    select customer_id, customer_unique_id from {{ source('ecommerce_raw', 'customers') }}
 )
 
 select
@@ -23,9 +23,9 @@ select
     items.freight_value,
     -- Status
     orders.order_status,
-    -- Wyliczenia logistyczne
-    extract(day from (orders.order_delivered_customer_date - orders.order_purchase_timestamp)) as actual_delivery_days,
-    extract(day from (orders.order_estimated_delivery_date - orders.order_delivered_customer_date)) as delivery_delta_days
+    -- Wyliczenia logistyczne w Snowflake (DATEDIFF)
+    datediff(day, orders.order_purchase_timestamp, orders.order_delivered_customer_date) as actual_delivery_days,
+    datediff(day, orders.order_delivered_customer_date, orders.order_estimated_delivery_date) as delivery_delta_days
 from items
 join {{ ref('dim_orders') }} orders  on items.order_id = orders.order_id
 join customers c on orders.customer_id = c.customer_id

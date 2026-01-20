@@ -1,1 +1,1 @@
-select * from {{ source('olist_raw', 'orders') }}
+select * from {{ source('ecommerce_raw', 'orders') }}
